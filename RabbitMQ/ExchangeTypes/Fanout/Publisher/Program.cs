@@ -18,13 +18,15 @@ internal class Program
 
         using var connection = await factory.CreateConnectionAsync();
         var channel = await connection.CreateChannelAsync();
-        await channel.QueueDeclareAsync("queue-test", true, false, false);
+        
+        //Exchange declarated as Fanout
+        await channel.ExchangeDeclareAsync("logs-fanout",type: ExchangeType.Fanout,durable:true);
 
-        Enumerable.Range(1,20).ToList().ForEach(async number =>{
+        Enumerable.Range(1,150).ToList().ForEach(async number =>{
 
-            await channel.BasicPublishAsync(string.Empty, "queue-test",false, Encoding.UTF8.GetBytes($"Message:{number}"));
+            await channel.BasicPublishAsync("logs-fanout", string.Empty,false, Encoding.UTF8.GetBytes($"Log {number}"));
 
-            Console.WriteLine($"The Message: {number}");
+            Console.WriteLine($"Log: {number}");
         });
 
         Console.ReadLine();

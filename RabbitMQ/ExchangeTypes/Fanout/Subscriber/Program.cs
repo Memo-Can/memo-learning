@@ -20,15 +20,22 @@ internal class Program
         using var connection = await factory.CreateConnectionAsync();
         using var channel = await connection.CreateChannelAsync();
 
+        QueueDeclareOk queueDeclareOk= await channel.QueueDeclareAsync();
+        
+        var queueName =  queueDeclareOk.QueueName;
+        //var queueName =  "log-database-save-queue";
+
+        //Prevent to remove ques if the consumer is down.
+        //await channel.QueueDeclareAsync(queueName,true,false,false);
+
+        await channel.QueueBindAsync(queueName,"logs-fanout","",null);
+
         //how to share message to subscribes by count.
         await channel.BasicQosAsync(0,1,false);
-        Console.WriteLine(" [*] Waiting for messages.");
 
+        Console.WriteLine($"Waiting for logs");
+    
         var consumer = new AsyncEventingBasicConsumer(channel);
-
-        //autoack false for preventing to delete messages.
-        await channel.BasicConsumeAsync("queue-test",false,consumer);
-
         consumer.ReceivedAsync += (model, e) =>
         {
             Thread.Sleep(1500);
@@ -42,7 +49,8 @@ internal class Program
             return Task.CompletedTask;
         };
 
-        await channel.BasicConsumeAsync("queue-test", autoAck: true, consumer: consumer);
+        await channel.BasicConsumeAsync(queueName, autoAck: true, consumer: consumer);
+        
 
         Console.ReadLine();
 
