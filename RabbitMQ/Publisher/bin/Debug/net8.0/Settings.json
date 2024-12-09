@@ -1,0 +1,5 @@
+{
+  "AppSettings": {
+    "Connection": "amqps://cizuhoba:yK87rbywI-WWcpmEoFpbM92RXk6Z7q-E@ostrich.lmq.cloudamqp.com/cizuhoba"
+  }
+}

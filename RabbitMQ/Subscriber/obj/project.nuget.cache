@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "AtPIVLabc+LXr4qukfS1N+zJsKcmHK5CCztBokcpVwjWdAozTI6OuqzTZCsL3LwSo+uHBoKj6/y2eD8E87udWA==",
+  "success": true,
+  "projectFilePath": "/home/memo/memo-learning/RabbitMQ/Subscriber/Subscriber.csproj",
+  "expectedPackageFiles": [
+    "/home/memo/.nuget/packages/microsoft.extensions.configuration/9.0.0/microsoft.extensions.configuration.9.0.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/microsoft.extensions.configuration.abstractions/9.0.0/microsoft.extensions.configuration.abstractions.9.0.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/microsoft.extensions.configuration.fileextensions/9.0.0/microsoft.extensions.configuration.fileextensions.9.0.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/microsoft.extensions.configuration.json/9.0.0/microsoft.extensions.configuration.json.9.0.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/microsoft.extensions.fileproviders.abstractions/9.0.0/microsoft.extensions.fileproviders.abstractions.9.0.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/microsoft.extensions.fileproviders.physical/9.0.0/microsoft.extensions.fileproviders.physical.9.0.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/microsoft.extensions.filesystemglobbing/9.0.0/microsoft.extensions.filesystemglobbing.9.0.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/microsoft.extensions.primitives/9.0.0/microsoft.extensions.primitives.9.0.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/rabbitmq.client/7.0.0/rabbitmq.client.7.0.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/system.io.pipelines/9.0.0/system.io.pipelines.9.0.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/system.text.encodings.web/9.0.0/system.text.encodings.web.9.0.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/system.text.json/9.0.0/system.text.json.9.0.0.nupkg.sha512",
+    "/home/memo/.nuget/packages/system.threading.ratelimiting/8.0.0/system.threading.ratelimiting.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
