@@ -38,7 +38,10 @@ internal class Program
         props.Headers.Add("latitude",  51.5252949);
         props.Headers.Add("longitude", -0.0905493);
         
-       await channel.BasicPublishAsync("header-exchange",string.Empty,false, props,Encoding.UTF8.GetBytes("Header Message"));
+        //with that persistent, the message is a kind of durabe and never deleted after restart
+        props.Persistent = true;
+        
+        await channel.BasicPublishAsync("header-exchange",string.Empty,false, props,Encoding.UTF8.GetBytes("Header Message"));
 
         Console.WriteLine("The Message has been sent");
         Console.ReadLine();
