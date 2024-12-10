@@ -14,6 +14,9 @@ internal class Program
 
         var factory = new ConnectionFactory();
 
+
+        var deneme = configuration["AppSettings:Connection"];
+
         factory.Uri = new Uri(configuration["AppSettings:Connection"]);
 
         using var connection = await factory.CreateConnectionAsync();

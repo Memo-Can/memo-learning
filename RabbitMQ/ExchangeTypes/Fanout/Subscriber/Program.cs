@@ -12,21 +12,14 @@ internal class Program
                     .AddJsonFile("Settings.json", optional: true, reloadOnChange: true) 
                     .Build();
 
-
         var factory = new ConnectionFactory();
-
         factory.Uri = new Uri(configuration["AppSettings:Connection"]);
 
         using var connection = await factory.CreateConnectionAsync();
         using var channel = await connection.CreateChannelAsync();
 
         QueueDeclareOk queueDeclareOk= await channel.QueueDeclareAsync();
-        
         var queueName =  queueDeclareOk.QueueName;
-        //var queueName =  "log-database-save-queue";
-
-        //Prevent to remove ques if the consumer is down.
-        //await channel.QueueDeclareAsync(queueName,true,false,false);
 
         await channel.QueueBindAsync(queueName,"logs-fanout","",null);
 
